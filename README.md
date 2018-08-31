@@ -1,7 +1,7 @@
 # tdex-api
 This project is designed to help you make your own projects
 
-# Node Binance API
+# Node Tdex API
 
 #### Installation
 ```
