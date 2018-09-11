@@ -340,7 +340,7 @@ params:
 ```
 #### 现货订单历史
 ```
-tdex.spotHistory({beginTime: string, endTime: string, pageSize: int32, page: int32}, res => {
+tdex.spotGetHistory({beginTime: string, endTime: string, pageSize: int32, page: int32}, res => {
 	//成功回调
 })
 ```
