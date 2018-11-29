@@ -11,12 +11,26 @@ npm install tdex-api --save
 #### Getting started
 
 ```
+#rest
+const Tdex = require('tdex-api').tdex
+
+#websocket
+const Ws = require('tdex-api').ws
+
+#连接rest
 const tdex = new Tdex({
 	apiKey: 'your apiKey',
 	apiSecret: 'your apiSecret',
 })
 
+#连接websocket
+const ws = new Ws({
+	apiKey: 'your apiKey',
+	apiSecret: 'your apiSecret',
+})
+
 ```
+## RestApi
 
 ### OpenFunction
 
@@ -374,6 +388,55 @@ params:
 	page 可选	int32	当前页码 选填
 
 ```
+### 获取最新深度
+```
+tdex.depthBook({depth: int}, res => {
+	//成功回调
+})
+```
+```
+params:
+	depth int32 订阅深度数量
+```
+
+
+
+## Websocket订阅
+### 接收消息
+```
+ws.onMessage = (data) => {
+    console.log(data)
+}
+```
+### 断开连接
+```
+ws.onClose = () => {
+	console.log('disconnect')
+}
+```
+
+### 订阅数据
+```
+1、订阅深度数据
+depth = {
+	"type": "depth"
+}
+2、订阅用户更新信息
+userInfo = {
+	"type": "userInfo",
+	"uid": userInfo.uid //从userInfos接口获取用户的uid
+}
+3、订阅行情数据
+market = {
+	"type": "market"
+}
+
+ws.connect(depth, userInfo, market) //同时订阅深度、用户信息、行情
+
+```
+
+
+
 
 
 
