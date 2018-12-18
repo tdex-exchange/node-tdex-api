@@ -4,7 +4,7 @@ const https = require('https');
 
 class Configs {
     constructor() {
-        this.host = 'tl.tdex.com'
+        this.host = 'www.tdex.com'
         this.port = 443
         this.path = '/openapi/v1'
         this.method = 'POST'
