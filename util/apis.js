@@ -209,7 +209,7 @@ class Ws {
     connect(...args) {
         let that = this;
         this.ws = new WebSocket('wss://www.tdex.com/realtime', {
-            origin: 'https://tl.tdex.com'
+            origin: 'https://www.tdex.com'
         });
         this.ws.on('open', this.openWs.bind(this, ...args));
         typeof this.onMessage === 'function' && this.ws.on('message', this.onMessage.bind(this));
